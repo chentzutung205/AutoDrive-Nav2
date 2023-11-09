@@ -1,3 +1,5 @@
+# This script is to set a set of sequential goals manually
+
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
@@ -74,7 +76,7 @@ class MapToGoal(Node):
         if feedback.distance_remaining < self.distance_limit and self.goals:
             self.get_logger().info('Close to the goal. Publishing the next goal.')
             self.publish_goal()
-            time.sleep(8)
+            time.sleep(5) # it's not working properly but it did help the robot recognize the 2nd goal
 
 
 def main(args=None):
