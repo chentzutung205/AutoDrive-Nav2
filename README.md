@@ -1,6 +1,6 @@
 # Autonomous Navigation with ROS2
 
-This project is a part of the larger Autonomous Vehicle initiative. BB-8, affectionately known as "Beebee-Ate," is a lovable and intelligent droid character from the __Star Wars__ franchise. Inspired by this iconic character, our robot BB-8 is designed to navigate and interact with its environment, showcasing advanced capabilities in object tracking and autonomous navigation.
+This milestone is a part of the Autonomous Vehicle project. BB-8, affectionately known as "Beebee-Ate," is a lovable and intelligent droid character from the __Star Wars__ franchise. Inspired by this iconic character, our robot BB-8 is designed to navigate and interact with its environment, showcasing advanced capabilities in object tracking and autonomous navigation.
 
 ## Overview
 
@@ -12,6 +12,7 @@ This ROS2 package allows a TurtleBot3 to autonomously navigate between predefine
 - Gazebo
 - Navigation2 (Nav2)
 - geometry_msgs
+- sensor_msgs
 
 ## Features
 
@@ -20,24 +21,26 @@ This ROS2 package allows a TurtleBot3 to autonomously navigate between predefine
 - Integration with Nav2 for path planning and obstacle avoidance
 
 ## Nodes
-**1. **
+**1. test**
 
-This node processes LIDAR data to detect the range and orientation of obstacles in the robot's local coordinate frame.
+This node allows us to send goals one-by-one manually.
 
-**2. **
+**2. navigate**
 
-This node drives the robot through the sequence of waypoints. It incorporates obstacle data from getObjectRange and uses onboard odometry for accurate global positioning.
+This node handles a sequential list of waypoints.
 
 ## Usage
-1. Ensure all dependencies are installed.
-2. Clone this package into your ROS2 workspace.
+1. Clone this package into your ROS2 workspace.
+2. Ensure all dependencies are installed.
 3. Build the package using `colcon build`.
 4. Source your workspace.
-5. Run the nodes using:
+5. Running the simulation.
+6. Run the nodes using:
 ```
-ros2 run bb8_navigate_to_goal getObjectRange
-ros2 run bb8_navigate_to_goal goToGoal
+ros2 run bb8_navigation test.py
+ros2 run bb8_navigation navigate.py
 ```
+7. Navigate through waypoints using RViz or command line.
 
 ## Tips
 - Adjust Nav2 parameters in turtlebot3_navigation/param/ for better performance.
